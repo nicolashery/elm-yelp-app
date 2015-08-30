@@ -1,3 +1,5 @@
+module Main where
+
 import App exposing (init, update, view)
 import Effects exposing (Never)
 import StartApp
