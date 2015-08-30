@@ -24,11 +24,16 @@ type alias Model =
   { businesses : List Business
   , term : String
   , location : String
+  , isLoading : Bool
   }
 
 init : (Model, Effects Action)
 init =
-  ( { businesses = [], term = "", location = "Montréal, QC" }
+  ( { businesses = []
+    , term = ""
+    , location = "Montréal, QC"
+    , isLoading = False
+    }
   , Effects.none
   )
 
@@ -38,8 +43,8 @@ init =
 type Action
   = UpdateTerm String
   | UpdateLocation String
-  | Search
-  | NewSearchResults (Maybe (List Business))
+  | StartSearch
+  | CompleteSearch (Maybe (List Business))
 
 update : Action -> Model -> (Model, Effects Action)
 update action model =
@@ -54,30 +59,30 @@ update action model =
       , Effects.none
       )
 
-    Search ->
-      ( model
+    StartSearch ->
+      ( { model | isLoading <- True, businesses <- [] }
       , search model.term model.location
       )
 
-    NewSearchResults maybeResults ->
+    CompleteSearch maybeResults ->
       let businesses =  Maybe.withDefault [] maybeResults
       in
-        ( { model | businesses <- businesses }
+        ( { model | isLoading <- False, businesses <- businesses }
         , Effects.none
         )
-
 
 -- VIEW --
 
 view : Signal.Address Action -> Model -> Html
 view address model =
   div []
-    ( [searchFormView address model.term model.location]
-    ++ (List.map businessView model.businesses)
-    )
+    [ searchFormView address model.term model.location model.isLoading
+    , businessesView model.businesses
+    , loadingView model.isLoading
+    ]
 
-searchFormView : Signal.Address Action -> String -> String -> Html
-searchFormView address term location =
+searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
+searchFormView address term location isLoading =
   Html.form []
     [
       label [] [ text "Find " ]
@@ -98,10 +103,20 @@ searchFormView address term location =
           "click"
           { defaultOptions | preventDefault <- True }
           Json.value
-          (\_ -> Signal.message address Search)
+          (\_ -> Signal.message address StartSearch)
+      , disabled isLoading
       ]
       [ text "Search" ]
     ]
+
+loadingView : Bool -> Html
+loadingView isLoading =
+  div [ style [ ("display", if isLoading then "block" else "none") ] ]
+    [ text "Loading..." ]
+
+businessesView : List Business -> Html
+businessesView businesses =
+  div [] (List.map businessView businesses)
 
 businessView : Business -> Html
 businessView business =
@@ -124,7 +139,7 @@ search : String -> String -> Effects Action
 search term location =
   Http.get decodeResults (searchUrl term location)
     |> Task.toMaybe
-    |> Task.map NewSearchResults
+    |> Task.map CompleteSearch
     |> Effects.task
 
 searchUrl : String -> String -> String
