@@ -4,6 +4,7 @@ import Debug
 import Effects exposing (Effects)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Http
 import Json.Decode as Json exposing ((:=))
 import Maybe
@@ -19,22 +20,45 @@ type alias Business =
   , categories : List (String, String)
   }
 
-type alias Model = { businesses : List Business }
+type alias Model =
+  { businesses : List Business
+  , term : String
+  , location : String
+  }
 
 init : (Model, Effects Action)
 init =
-  ( Model []
-  , search "bars" "Montréal"
+  ( { businesses = [], term = "", location = "Montréal, QC" }
+  , Effects.none
   )
 
 
 -- UPDATE --
 
-type Action = NewSearchResults (Maybe (List Business))
+type Action
+  = UpdateTerm String
+  | UpdateLocation String
+  | Search
+  | NewSearchResults (Maybe (List Business))
 
 update : Action -> Model -> (Model, Effects Action)
 update action model =
   case action of
+    UpdateTerm term ->
+      ( { model | term <- term }
+      , Effects.none
+      )
+
+    UpdateLocation location ->
+      ( { model | location <- location }
+      , Effects.none
+      )
+
+    Search ->
+      ( model
+      , search model.term model.location
+      )
+
     NewSearchResults maybeResults ->
       let businesses =  Maybe.withDefault [] maybeResults
       in
@@ -48,23 +72,50 @@ update action model =
 view : Signal.Address Action -> Model -> Html
 view address model =
   div []
-  (List.map businessView model.businesses)
+    ( [searchFormView address model.term model.location]
+    ++ (List.map businessView model.businesses)
+    )
+
+searchFormView : Signal.Address Action -> String -> String -> Html
+searchFormView address term location =
+  Html.form []
+    [
+      label [] [ text "Find " ]
+    , input
+        [ value term
+        , on "input" targetValue (Signal.message address << UpdateTerm)
+        ]
+        []
+    , span [] [ text " near " ]
+    , input
+        [ value location
+        , on "input" targetValue (Signal.message address << UpdateLocation)
+        ]
+        []
+    , span [] [ text " " ]
+    , button
+      [ onWithOptions
+          "click"
+          { defaultOptions | preventDefault <- True }
+          Json.value
+          (\_ -> Signal.message address Search)
+      ]
+      [ text "Search" ]
+    ]
 
 businessView : Business -> Html
 businessView business =
   div []
-  [ h2 [] [text business.name]
-  , div []
-  ( List.intersperse (span [] [text ", "])
-   (List.map categoryView business.categories)
-  )
-  ]
+    [ h2 [] [text business.name]
+    , div []
+    ( List.intersperse (span [] [text ", "])
+      (List.map categoryView business.categories)
+    )
+    ]
 
 categoryView : (String, String) -> Html
 categoryView (cateogryName, categoryAlias) =
-  a [href ("#" ++ categoryAlias)]
-  [ text cateogryName
-  ]
+  a [ href ("#" ++ categoryAlias) ] [ text cateogryName ]
 
 
 -- EFFECTS --
