@@ -129,7 +129,7 @@ search term location =
 
 searchUrl : String -> String -> String
 searchUrl term location =
-  Http.url "/search.json"
+  Http.url "http://localhost:8001/search"
     [ ("term", term)
     , ("location", location)
     ]
