@@ -1,0 +1,1007 @@
+{
+    "region": {
+        "span": {
+            "latitude_delta": 0.06567951923389614,
+            "longitude_delta": 0.06397225999998568
+        },
+        "center": {
+            "latitude": 45.5126444730755,
+            "longitude": -73.5903481
+        }
+    },
+    "total": 1773,
+    "businesses": [
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/balsam-inn-montr%C3%A9al",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 27,
+            "name": "Balsam Inn",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/balsam-inn-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5145079207",
+            "snippet_text": "Before I tell you how much I loved this place, let me say: THEY CANNOT HAVE ANYONE UNDER 18 IN THE RESTAURANT/BAR. We brought our 13 year old with us and...",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/JebPZLGPkBYuD6PuzVS__A/ms.jpg",
+            "categories": [
+                [
+                    "Italian",
+                    "italian"
+                ],
+                [
+                    "Cocktail Bars",
+                    "cocktailbars"
+                ]
+            ],
+            "display_phone": "+1-514-507-9207",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "balsam-inn-montr\u00e9al",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/INmmKGRX6KxWxdhdMw9AEA/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1237 Rue Metcalfe",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H3B 2V5",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H3B 2V5",
+                "country_code": "CA",
+                "address": [
+                    "1237 Rue Metcalfe"
+                ],
+                "coordinate": {
+                    "latitude": 45.5005188,
+                    "longitude": -73.5714264
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/dieu-du-ciel-montr%C3%A9al-2",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 227,
+            "name": "Dieu du Ciel",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/dieu-du-ciel-montr%C3%A9al-2",
+            "is_closed": false,
+            "phone": "5144909555",
+            "snippet_text": "Must must must go to this place if you are visiting Montreal and if you already live in Montreal, well aren't you a lucky one. We were fortunate enough to...",
+            "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/Os3dVkjTkAIcdFqJUX83FA/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ]
+            ],
+            "display_phone": "+1-514-490-9555",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "dieu-du-ciel-montr\u00e9al-2",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/Rd5QEn77b0xlRE8Yx7iTzg/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "29 av Laurier Ouest",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2T 2N2",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2T 2N2",
+                "country_code": "CA",
+                "address": [
+                    "29 av Laurier Ouest"
+                ],
+                "coordinate": {
+                    "latitude": 45.5227203,
+                    "longitude": -73.5934219
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/la-distillerie-montr%C3%A9al-6",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 120,
+            "name": "La Distillerie",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/la-distillerie-montr%C3%A9al-6",
+            "is_closed": false,
+            "phone": "5142887915",
+            "snippet_text": "This has got to be one of the better bars in Montreal.  It has a neighborhood vibe, decently priced drinks, and really friendly service.\n\nAll the drinks...",
+            "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/tRQEBVfwCCji4aXlRlnMKQ/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ]
+            ],
+            "display_phone": "+1-514-288-7915",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "la-distillerie-montr\u00e9al-6",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/h3N_lEQrKc0u7--2HWvPTA/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "300, Rue Ontario E",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2X 1H6",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2X 1H6",
+                "country_code": "CA",
+                "address": [
+                    "300, Rue Ontario E"
+                ],
+                "coordinate": {
+                    "latitude": 45.5147896,
+                    "longitude": -73.5654221
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/randolph-pub-ludique-montr%C3%A9al",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 33,
+            "name": "Randolph Pub Ludique",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/randolph-pub-ludique-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5144195001",
+            "snippet_text": "anal rape by night!\n\nso, on a monday night, we had an elite event at randolph for some fun games and stuff. usually, we have a separate yelp page to review...",
+            "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/NkFL27a2671CA_ElzPbsVw/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ]
+            ],
+            "display_phone": "+1-514-419-5001",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "randolph-pub-ludique-montr\u00e9al",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/FvDHoO7PxzNAzioI9UabDg/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "2041 Rue Saint Denis",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2X 3K8",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2X 3K8",
+                "country_code": "CA",
+                "address": [
+                    "2041 Rue Saint Denis"
+                ],
+                "coordinate": {
+                    "latitude": 45.5164298,
+                    "longitude": -73.5660051
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/le-lab-montr%C3%A9al-2",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 83,
+            "name": "Le Lab",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/le-lab-montr%C3%A9al-2",
+            "is_closed": false,
+            "phone": "5145441333",
+            "snippet_text": "Second bar I visited from Montreal and went mostly for the Jerky Lab Jack! The bar was also celebrating National Tequila Day (yay!) so there was a deal on...",
+            "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/q65-1gOz24UlehL_eX4JMw/ms.jpg",
+            "categories": [
+                [
+                    "Lounges",
+                    "lounges"
+                ],
+                [
+                    "Cocktail Bars",
+                    "cocktailbars"
+                ]
+            ],
+            "display_phone": "+1-514-544-1333",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "le-lab-montr\u00e9al-2",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/e-dwmqtoFJyjDBEnfmHDmg/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1351 Rachel E",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2J 2K2",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2J 2K2",
+                "country_code": "CA",
+                "address": [
+                    "1351 Rachel E"
+                ],
+                "coordinate": {
+                    "latitude": 45.5280991,
+                    "longitude": -73.5721512
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/big-in-japan-bar-montr%C3%A9al",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 92,
+            "name": "Big In Japan Bar",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/big-in-japan-bar-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "4383805658",
+            "snippet_text": "Wow wow wow. You come here to impress someone. Love the allure of trying to find this cocktail lounge (this place is NOT a bar) behind an unmarked black...",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/0YHcOyVy3MVIxVG4SWh65w/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ]
+            ],
+            "display_phone": "+1-438-380-5658",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "big-in-japan-bar-montr\u00e9al",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/RIc0gnHZ7weNx6lmwhDJTg/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "4175 Boulevard Saint-Laurent",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2W 1Y9",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2W 1Y9",
+                "country_code": "CA",
+                "address": [
+                    "4175 Boulevard Saint-Laurent"
+                ],
+                "coordinate": {
+                    "latitude": 45.5180397,
+                    "longitude": -73.581398
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/elses-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 63,
+            "name": "Else's",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/elses-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5142866689",
+            "snippet_text": "Else's has a great atmosphere and was a very enjoyable experience.  I ordered the vegetarian tacos which were delicious, and finished things off with the...",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/rP58kdfBoYkNCFxPuca6Dw/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ],
+                [
+                    "American (Traditional)",
+                    "tradamerican"
+                ]
+            ],
+            "display_phone": "+1-514-286-6689",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "elses-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/jJ5SjOQmNcMGUotO02xxbw/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "156 Rue Roy E",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2W 1M2",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2W 1M2",
+                "country_code": "CA",
+                "address": [
+                    "156 Rue Roy E"
+                ],
+                "coordinate": {
+                    "latitude": 45.516859110403,
+                    "longitude": -73.574654972226
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/n-sur-mackay-montr%C3%A9al",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 15,
+            "name": "N Sur Mackay",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/n-sur-mackay-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5149381244",
+            "snippet_text": "I love this place. But. I have only ever stopped by for a 5\u00e07 or for a petit ap\u00e9ro, so for me, it's like a cool, whiskey bar with a speakeasy feel. \n\nFor...",
+            "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/gZQqB3S4juNTUJ5XTtrsRQ/ms.jpg",
+            "categories": [
+                [
+                    "Lounges",
+                    "lounges"
+                ]
+            ],
+            "display_phone": "+1-514-938-1244",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "n-sur-mackay-montr\u00e9al",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/ZpjazNIoDalviDwO9UbfgA/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1244 Rue Mackay",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H3G 2H5",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H3G 2H5",
+                "country_code": "CA",
+                "address": [
+                    "1244 Rue Mackay"
+                ],
+                "coordinate": {
+                    "latitude": 45.4953075,
+                    "longitude": -73.5762235
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/notkins-montr%C3%A9al",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 35,
+            "name": "Notkins",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/notkins-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5148661101",
+            "snippet_text": "Nice environment, great food, and an overall very good restaurant.  Service was friendly, if not the fastest, and cocktails &amp; wine were above average...",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/vVy7r08ppTuOnPriRYP0cA/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ],
+                [
+                    "Seafood",
+                    "seafood"
+                ]
+            ],
+            "display_phone": "+1-514-866-1101",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "notkins-montr\u00e9al",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/HRMso16RWqMFIOuzi3gPng/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1101 Rue Bleury",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H2Z 1N1",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H2Z 1N1",
+                "country_code": "CA",
+                "address": [
+                    "1101 Rue Bleury"
+                ],
+                "coordinate": {
+                    "latitude": 45.5049477,
+                    "longitude": -73.5638123
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/brasserie-harricana-montr%C3%A9al",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 23,
+            "name": "Brasserie Harricana",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/brasserie-harricana-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5146670006",
+            "snippet_text": "Great atmosphere and the prices are more than reasonable. \n\nMy friend had the oysters and I got the poutine bun. We were both satisfied with our plates.",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/c0KPZKbtP3nLoRBTv9yVcQ/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ],
+                [
+                    "Comfort Food",
+                    "comfortfood"
+                ],
+                [
+                    "Breakfast &amp; Brunch",
+                    "breakfast_brunch"
+                ]
+            ],
+            "display_phone": "+1-514-667-0006",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "brasserie-harricana-montr\u00e9al",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/0ds8b5IydSHoiTRX8lERIw/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "95 Jean-Talon W",
+                    "Villeray-Saint-Michel-Parc-Extension",
+                    "Montr\u00e9al, QC H2R 2W8",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Villeray-Saint-Michel-Parc-Extension"
+                ],
+                "postal_code": "H2R 2W8",
+                "country_code": "CA",
+                "address": [
+                    "95 Jean-Talon W"
+                ],
+                "coordinate": {
+                    "latitude": 45.5338211,
+                    "longitude": -73.6195221
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/the-burgundy-lion-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 116,
+            "name": "The Burgundy Lion",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/the-burgundy-lion-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5149340888",
+            "snippet_text": "I came to the pub burgundy lion for the first time for brunch.\n\nWalking in, the wooden decor and melange of art on the walls made a \"cool\" atmosphere. The...",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/xuagIjM7qd-kmihRKBfBvw/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ],
+                [
+                    "Breakfast &amp; Brunch",
+                    "breakfast_brunch"
+                ]
+            ],
+            "display_phone": "+1-514-934-0888",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "the-burgundy-lion-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/DhG6zPDY8h9dLPPjkRN-9g/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "2496 Rue Notre-Dame W",
+                    "Sud-Ouest",
+                    "Montr\u00e9al, QC H3J 1N4",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Sud-Ouest"
+                ],
+                "postal_code": "H3J 1N4",
+                "country_code": "CA",
+                "address": [
+                    "2496 Rue Notre-Dame W"
+                ],
+                "coordinate": {
+                    "latitude": 45.482790146151,
+                    "longitude": -73.575192238733
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/la-distillerie-no-2-montr%C3%A9al",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 38,
+            "name": "La Distillerie No 2",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/la-distillerie-no-2-montr%C3%A9al",
+            "is_closed": false,
+            "phone": "5145238166",
+            "snippet_text": "Yesterday night we visited the place with a little group.\nI liked the way how people treat the customers.\nIn 2 minutes we had table, we got our drinks fast....",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/wmtPoc9qKpIyn4RggZaGjw/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ]
+            ],
+            "display_phone": "+1-514-523-8166",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "la-distillerie-no-2-montr\u00e9al",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/H2A7Wvo5o6Y-LMYgaarp6w/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "2047 Avenue Mont-Royal",
+                    "Rosemont-La Petite-Patrie",
+                    "Montr\u00e9al, QC H2H 1J7",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Rosemont-La Petite-Patrie"
+                ],
+                "postal_code": "H2H 1J7",
+                "country_code": "CA",
+                "address": [
+                    "2047 Avenue Mont-Royal"
+                ],
+                "coordinate": {
+                    "latitude": 45.5351438,
+                    "longitude": -73.572567
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/broue-pub-brouhaha-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 23,
+            "name": "Broue Pub Brouhaha",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/broue-pub-brouhaha-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5142717571",
+            "snippet_text": "There must be a reason why I keep coming back to this hidden gem in Rosemont tucked away from the tourists, enough so that a renewed 5-star review seems...",
+            "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/38JTWRaLewr-vysNDfs8sw/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ]
+            ],
+            "display_phone": "+1-514-271-7571",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "broue-pub-brouhaha-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/AzDKaVhV0r2yrblcw6ISJw/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "5860 Avenue de Lorimier",
+                    "Rosemont-La Petite-Patrie",
+                    "Montr\u00e9al, QC H2G 2N9",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Rosemont-La Petite-Patrie"
+                ],
+                "postal_code": "H2G 2N9",
+                "country_code": "CA",
+                "address": [
+                    "5860 Avenue de Lorimier"
+                ],
+                "coordinate": {
+                    "latitude": 45.5424309,
+                    "longitude": -73.5884399
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/benelux-montr%C3%A9al-2",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 79,
+            "name": "Benelux",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/benelux-montr%C3%A9al-2",
+            "is_closed": false,
+            "phone": "5145439750",
+            "snippet_text": "We only came here for the beers, but quite enjoyed ourselves.  Very nice mix of beers, including many brewed in house.  Everything from a Pilsner to an...",
+            "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/kTS1Z8hawlYh1GRQylom8g/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ],
+                [
+                    "Breweries",
+                    "breweries"
+                ]
+            ],
+            "display_phone": "+1-514-543-9750",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "benelux-montr\u00e9al-2",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/bPgZzCpklKRDtBAMNfsxRg/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "245 Rue Sherbrooke W",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2X 1X7",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2X 1X7",
+                "country_code": "CA",
+                "address": [
+                    "245 Rue Sherbrooke W"
+                ],
+                "coordinate": {
+                    "latitude": 45.5094968408497,
+                    "longitude": -73.5711174337951
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/le-sainte-elisabeth-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 81,
+            "name": "Le Sainte Elisabeth",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/le-sainte-elisabeth-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5142864302",
+            "snippet_text": "Walking in, it doesn't look like much, but don't let that fool you... The back terrasse is something else. The walls are lined with luscious foliage, which...",
+            "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/YHccrGcuGEJVlVon-qPYpw/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ],
+                [
+                    "Dive Bars",
+                    "divebars"
+                ]
+            ],
+            "display_phone": "+1-514-286-4302",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "le-sainte-elisabeth-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/y7tRoFFWZ6q2L-WHEWdcYw/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1412, rue Sainte-Elisabeth",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H2X 3C6",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H2X 3C6",
+                "country_code": "CA",
+                "address": [
+                    "1412, rue Sainte-Elisabeth"
+                ],
+                "coordinate": {
+                    "latitude": 45.5121536,
+                    "longitude": -73.5620575
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/r%C3%A9servoir-montr%C3%A9al-4",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 79,
+            "name": "R\u00e9servoir",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/r%C3%A9servoir-montr%C3%A9al-4",
+            "is_closed": false,
+            "phone": "5148497779",
+            "snippet_text": "This is the place to go for hand crafted, made on premises beer as well as the best vegetarian food I have had anywhere. I wasn't expecting vegetarian but...",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/7ZauFYRuH08dPZrI1ATNpQ/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ],
+                [
+                    "Tapas/Small Plates",
+                    "tapasmallplates"
+                ],
+                [
+                    "Vegetarian",
+                    "vegetarian"
+                ]
+            ],
+            "display_phone": "+1-514-849-7779",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "r\u00e9servoir-montr\u00e9al-4",
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/4_E8gjrhMma1Ig3L5W4_5A/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "9 Avenue Duluth E",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2W 1G7",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2W 1G7",
+                "country_code": "CA",
+                "address": [
+                    "9 Avenue Duluth E"
+                ],
+                "coordinate": {
+                    "latitude": 45.517218,
+                    "longitude": -73.579186
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": false,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/nyks-bistro-pub-montr%C3%A9al-2",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 53,
+            "name": "Nyks Bistro Pub",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/nyks-bistro-pub-montr%C3%A9al-2",
+            "is_closed": false,
+            "phone": "5148661787",
+            "snippet_text": "Fantastic! Loved this place! We went on a weeknight during the Comedy Fest. Place was hopping but service was very friendly and attentive. Food all around...",
+            "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/zIsSHiTQ0P-G6fujgRfJwg/ms.jpg",
+            "categories": [
+                [
+                    "Pubs",
+                    "pubs"
+                ]
+            ],
+            "display_phone": "+1-514-866-1787",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "nyks-bistro-pub-montr\u00e9al-2",
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/wWATmIKnYv88POtHH-LMyw/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1250, rue de Bleury",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H3B 2W4",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H3B 2W4",
+                "country_code": "CA",
+                "address": [
+                    "1250, rue de Bleury"
+                ],
+                "coordinate": {
+                    "latitude": 45.5060196,
+                    "longitude": -73.5666504
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/le-mal-n%C3%A9cessaire-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 38,
+            "name": "Le Mal N\u00e9cessaire",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/le-mal-n%C3%A9cessaire-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5144399199",
+            "snippet_text": "Great bartenders. Great drinks. Fun atmosphere. Perfect Storm is my favorite drink. Maybe ever.",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/zI0Uff2L6ChgF5aO5eNu1g/ms.jpg",
+            "categories": [
+                [
+                    "Cocktail Bars",
+                    "cocktailbars"
+                ]
+            ],
+            "display_phone": "+1-514-439-9199",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "le-mal-n\u00e9cessaire-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/QW_cKKgLPBvy2POqOB2K-g/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "1106B Saint Laurent Boulevard",
+                    "Ville-Marie",
+                    "Montr\u00e9al, QC H2Z 1J5",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Ville-Marie"
+                ],
+                "postal_code": "H2Z 1J5",
+                "country_code": "CA",
+                "address": [
+                    "1106B Saint Laurent Boulevard"
+                ],
+                "coordinate": {
+                    "latitude": 45.5085754,
+                    "longitude": -73.5612698
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.5,
+            "mobile_url": "http://m.yelp.ca/biz/le-majestique-montr%C3%A9al-2",
+            "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+            "review_count": 42,
+            "name": "Le Majestique",
+            "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+            "url": "http://www.yelp.ca/biz/le-majestique-montr%C3%A9al-2",
+            "is_closed": false,
+            "phone": "5144391850",
+            "snippet_text": "On a recent 10 day Montreal extravaganza, we hit the restaurant scene pretty hard. It's all a blur, but the times I have reflected on the trip (like right...",
+            "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/bnU6vF4UfJ6MNLx9ReBTXw/ms.jpg",
+            "categories": [
+                [
+                    "Bars",
+                    "bars"
+                ],
+                [
+                    "Canadian (New)",
+                    "newcanadian"
+                ]
+            ],
+            "display_phone": "+1-514-439-1850",
+            "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+            "id": "le-majestique-montr\u00e9al-2",
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/rN0yR0N6Hjo4Ze2ORJxnIQ/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "4105 Boulevard Saint-Laurent",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2W 1Y7",
+                    "Canada"
+                ],
+                "geo_accuracy": 9.5,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2W 1Y7",
+                "country_code": "CA",
+                "address": [
+                    "4105 Boulevard Saint-Laurent"
+                ],
+                "coordinate": {
+                    "latitude": 45.5175436,
+                    "longitude": -73.5802618
+                },
+                "state_code": "QC"
+            }
+        },
+        {
+            "is_claimed": true,
+            "rating": 4.0,
+            "mobile_url": "http://m.yelp.ca/biz/baldwin-barmacie-montr%C3%A9al-3",
+            "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+            "review_count": 57,
+            "name": "Baldwin Barmacie",
+            "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+            "url": "http://www.yelp.ca/biz/baldwin-barmacie-montr%C3%A9al-3",
+            "is_closed": false,
+            "phone": "5142764282",
+            "snippet_text": "Baldwin is a beautiful bar with an elegant, laid-back atmosphere. The decor is clean &amp; modern with a mid-century undertone and diffuse lighting, lending...",
+            "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/0xFzrgkm1oa4r07UmsutOg/ms.jpg",
+            "categories": [
+                [
+                    "Canadian (New)",
+                    "newcanadian"
+                ],
+                [
+                    "Cocktail Bars",
+                    "cocktailbars"
+                ]
+            ],
+            "display_phone": "+1-514-276-4282",
+            "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+            "id": "baldwin-barmacie-montr\u00e9al-3",
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/0MFvwJ1iY2Rcut8HlT76fQ/ms.jpg",
+            "location": {
+                "city": "Montr\u00e9al",
+                "display_address": [
+                    "115, avenue Laurier Ouest",
+                    "Plateau-Mont-Royal",
+                    "Montr\u00e9al, QC H2T 2N6",
+                    "Canada"
+                ],
+                "geo_accuracy": 8.0,
+                "neighborhoods": [
+                    "Plateau-Mont-Royal"
+                ],
+                "postal_code": "H2T 2N6",
+                "country_code": "CA",
+                "address": [
+                    "115, avenue Laurier Ouest"
+                ],
+                "coordinate": {
+                    "latitude": 45.5216484,
+                    "longitude": -73.5943909
+                },
+                "state_code": "QC"
+            }
+        }
+    ]
+}
