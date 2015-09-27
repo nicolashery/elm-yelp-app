@@ -75,7 +75,7 @@ update action model =
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  div []
+  div [ class "container app" ]
     [ searchFormView address model.term model.location model.isLoading
     , businessesView model.businesses
     , loadingView model.isLoading
@@ -83,23 +83,29 @@ view address model =
 
 searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
 searchFormView address term location isLoading =
-  Html.form []
+  Html.form [ class "search-form" ]
     [
-      label [] [ text "Find " ]
+      label [ for "term" ] [ text "Find " ]
     , input
-        [ value term
+        [ id "term"
+        , type' "text"
+        , class "u-full-width"
+        , value term
         , on "input" targetValue (Signal.message address << UpdateTerm)
         ]
         []
-    , span [] [ text " near " ]
+    , label [ for "location" ] [ text "Near " ]
     , input
-        [ value location
+        [ id "location"
+        , type' "text"
+        , class "u-full-width"
+        , value location
         , on "input" targetValue (Signal.message address << UpdateLocation)
         ]
         []
-    , span [] [ text " " ]
     , button
-      [ onWithOptions
+      [ class "button-primary u-full-width"
+      , onWithOptions
           "click"
           { defaultOptions | preventDefault <- True }
           Json.value
@@ -111,7 +117,9 @@ searchFormView address term location isLoading =
 
 loadingView : Bool -> Html
 loadingView isLoading =
-  div [ style [ ("display", if isLoading then "block" else "none") ] ]
+  div [ class "search-loading"
+      , style [ ("display", if isLoading then "block" else "none") ]
+      ]
     [ text "Loading..." ]
 
 businessesView : List Business -> Html
@@ -120,8 +128,8 @@ businessesView businesses =
 
 businessView : Business -> Html
 businessView business =
-  div []
-    [ h2 [] [text business.name]
+  div [ class "search-business" ]
+    [ div [ class "search-business-name" ] [text business.name]
     , div []
     ( List.intersperse (span [] [text ", "])
       (List.map categoryView business.categories)

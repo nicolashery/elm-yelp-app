@@ -16,7 +16,8 @@
   "dependencies": {
     "cors": "2.7.1",
     "express": "4.13.3",
-    "request": "2.61.0"
+    "request": "2.61.0",
+    "skeletonframework": "git://github.com/skeletonframework/SkeletonFramework.git#d02759ab30c428bafdf4888d97af243a633516cf"
   },
   "devDependencies": {
     "http-server": "0.8.5"

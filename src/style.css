@@ -1,3 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding-top: 100px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  padding-top: 20px;
+  max-width: 800px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-loading {
+  color: #aaa;
+}
+
+.search-business:first-child {
+  border-top: 1px solid #eee;
+}
+
+.search-business {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.search-business-name {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
