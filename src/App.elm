@@ -17,6 +17,8 @@ import Task
 type alias Business =
   { id : String
   , name : String
+  , address : List String
+  , neighborhoods : List String
   , categories : List (String, String)
   }
 
@@ -34,6 +36,8 @@ init =
     , location = "Montréal, QC"
     , isLoading = False
     }
+  --, search "bars" "Montréal, QC"
+  -- Comment and uncomment above to immediately search, for development
   , Effects.none
   )
 
@@ -129,17 +133,21 @@ businessesView businesses =
 businessView : Business -> Html
 businessView business =
   div [ class "search-business" ]
-    [ div [ class "search-business-name" ] [text business.name]
-    , div []
-    ( List.intersperse (span [] [text ", "])
-      (List.map categoryView business.categories)
-    )
+    [ div [ class "search-business-name" ] [ text business.name ]
+    , div [ class "search-business-address" ]
+      (commaSeparatedView business.address)
+    , div [ class "search-business-neighborhoods" ]
+      (commaSeparatedView business.neighborhoods)
+    , div [ class "search-business-categories" ]
+      ( commaSeparatedView
+        (List.map (\(name, alias) -> name) business.categories)
+      )
     ]
 
-categoryView : (String, String) -> Html
-categoryView (cateogryName, categoryAlias) =
-  a [ href ("#" ++ categoryAlias) ] [ text cateogryName ]
-
+commaSeparatedView : List String -> List Html
+commaSeparatedView strings =
+  List.intersperse (span [] [text ", "])
+    (List.map (\s -> span [] [text s]) strings)
 
 -- EFFECTS --
 
@@ -150,9 +158,15 @@ search term location =
     |> Task.map CompleteSearch
     |> Effects.task
 
+searchUrlBase : String
+searchUrlBase =
+   --"/data/search.json"
+  -- Comment and uncomment above to bypass remote API, for development
+  "http://localhost:8001/search"
+
 searchUrl : String -> String -> String
 searchUrl term location =
-  Http.url "http://localhost:8001/search"
+  Http.url searchUrlBase
     [ ("term", term)
     , ("location", location)
     ]
@@ -167,7 +181,9 @@ decodeCategory =
 
 decodeBusiness : Json.Decoder Business
 decodeBusiness =
-  Json.object3 Business
+  Json.object5 Business
     ("id" := Json.string)
     ("name" := Json.string)
+    (Json.at ["location", "address"] (Json.list Json.string))
+    (Json.at ["location", "neighborhoods"] (Json.list Json.string))
     ("categories" := Json.list decodeCategory)

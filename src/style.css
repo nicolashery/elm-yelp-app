@@ -7,10 +7,12 @@ body {
 }
 
 a {
+  color: #1EAEDB;
   text-decoration: none;
 }
 
 a:hover {
+  color: #1EAEDB;
   text-decoration: underline;
 }
 
@@ -38,5 +40,11 @@ a:hover {
 
 .search-business-name {
   font-size: 1.5rem;
-  margin-bottom: 5px;
+}
+
+.search-business-address,
+.search-business-neighborhoods,
+.search-business-categories {
+  color: #aaa;
+  font-size: 0.8rem;
 }
