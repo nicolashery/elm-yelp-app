@@ -18,6 +18,12 @@ Make sure you have [Elm](http://elm-lang.org/) installed. Install Elm dependenci
 $ elm-package install
 ```
 
+Build the app by running:
+
+```bash
+$ elm-make src/Main.elm
+```
+
 Start the frontend server with:
 
 ```bash
@@ -30,7 +36,7 @@ Navigate to `http://localhost:8000`.
 
 You will need [Yelp API access](https://www.yelp.com/developers/manage_api_keys) to run the backend.
 
-Create a helper script `tmp/env.sh` to load your Yelp API credentials:
+Create a helper script `tmp/env.sh` to load your Yelp API credentials, and allow the frontend origin:
 
 ```bash
 # tmp/env.sh
@@ -38,6 +44,7 @@ export CONSUMER_KEY='...'
 export CONSUMER_SECRET='...'
 export TOKEN='...'
 export TOKEN_SECRET='...'
+export CORS_ALLOW_ORIGIN='http://localhost:8000'
 ```
 
 Start the backend server with:

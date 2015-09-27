@@ -1,18 +1,18 @@
 {
-  "version": "0.1.0",
-  "summary": "Small app built with Elm and the Yelp API",
-  "repository": "https://github.com/nicolashery/elm-yelp-app.git",
-  "license": "MIT",
-  "source-directories": [
-    "src"
-  ],
-  "exposed-modules": [],
-  "dependencies": {
-    "elm-lang/core": "2.1.0 <= v < 3.0.0",
-    "evancz/elm-effects": "1.0.0 <= v < 2.0.0",
-    "evancz/elm-html": "4.0.1 <= v < 5.0.0",
-    "evancz/elm-http": "1.0.0 <= v < 2.0.0",
-    "evancz/start-app": "2.0.0 <= v < 3.0.0"
-  },
-  "elm-version": "0.15.1 <= v < 0.16.0"
+    "version": "0.1.0",
+    "summary": "Small app built with Elm and the Yelp API",
+    "repository": "https://github.com/nicolashery/elm-yelp-app.git",
+    "license": "MIT",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "2.1.0 <= v < 3.0.0",
+        "evancz/elm-effects": "2.0.0 <= v < 3.0.0",
+        "evancz/elm-html": "4.0.1 <= v < 5.0.0",
+        "evancz/elm-http": "2.0.0 <= v < 3.0.0",
+        "evancz/start-app": "2.0.1 <= v < 3.0.0"
+    },
+    "elm-version": "0.15.1 <= v < 0.16.0"
 }

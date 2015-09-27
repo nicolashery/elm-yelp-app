@@ -6,11 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elm Yelp App</title>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+  <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
 </body>
 
-<script type="text/javascript" src="bundle.js"></script>
+<script type="text/javascript" src="elm.js"></script>
+<script type="text/javascript">
+  var app = Elm.fullscreen(Elm.Main);
+</script>
+
+<!-- For development. Not working though :(
+<script type="text/javascript" src="/_reactor/debug.js"></script>
+<script type="text/javascript" src="elm.js"></script>
+<script type="text/javascript">
+  var app = Elm.fullscreenDebug('Main', './src/Main.elm');
+</script>
+-->
 
 </html>

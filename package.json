@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "elm": "elm-make --yes --output elm.js src/Main.elm",
-    "frontend": "webpack-dev-server --port 8000 --debug --progress",
+    "frontend": "http-server -p 8000",
     "backend": "node backend/server"
   },
   "repository": {
@@ -19,10 +19,6 @@
     "request": "2.61.0"
   },
   "devDependencies": {
-    "css-loader": "0.16.0",
-    "elm-webpack-loader": "0.2.0",
-    "style-loader": "0.12.3",
-    "webpack": "1.12.0",
-    "webpack-dev-server": "1.10.1"
+    "http-server": "0.8.5"
   }
 }
