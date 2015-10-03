@@ -21,6 +21,18 @@ a:hover {
   max-width: 800px;
 }
 
+.alert {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
 .search-form {
   margin-bottom: 20px;
 }

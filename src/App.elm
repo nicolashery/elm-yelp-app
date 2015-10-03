@@ -27,6 +27,8 @@ type alias Model =
   , term : String
   , location : String
   , isLoading : Bool
+  , hasError : Bool
+  , hasNoResults : Bool
   }
 
 init : (Model, Effects Action)
@@ -35,6 +37,8 @@ init =
     , term = ""
     , location = "Montréal, QC"
     , isLoading = False
+    , hasError = False
+    , hasNoResults = False
     }
   --, search "bars" "Montréal, QC"
   -- Comment and uncomment above to immediately search, for development
@@ -48,7 +52,7 @@ type Action
   = UpdateTerm String
   | UpdateLocation String
   | StartSearch
-  | CompleteSearch (Maybe (List Business))
+  | CompleteSearch (Result Http.Error (List Business))
 
 update : Action -> Model -> (Model, Effects Action)
 update action model =
@@ -64,14 +68,35 @@ update action model =
       )
 
     StartSearch ->
-      ( { model | isLoading <- True, businesses <- [] }
+      ( { model
+          | businesses <- []
+          , isLoading <- True
+          , hasError <- False
+          , hasNoResults <- False }
       , search model.term model.location
       )
 
-    CompleteSearch maybeResults ->
-      let businesses =  Maybe.withDefault [] maybeResults
+    CompleteSearch result ->
+      let businesses =
+            case result of
+              Err _ -> []
+              Ok value -> value
+          hasError =
+            case result of
+              Err _ -> True
+              Ok _ -> False
+          hasNoResults = not hasError && List.isEmpty businesses
+          -- Uncomment to debug Http or Json decoding errors
+          --error =
+          --  case result of
+          --    Err error -> Just (Debug.log "error" error)
+          --    Ok _ -> Nothing
       in
-        ( { model | isLoading <- False, businesses <- businesses }
+        ( { model
+            | businesses <- businesses
+            , isLoading <- False
+            , hasError <- hasError
+            , hasNoResults <- hasNoResults }
         , Effects.none
         )
 
@@ -81,8 +106,10 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ class "container app" ]
     [ searchFormView address model.term model.location model.isLoading
-    , businessesView model.businesses
     , loadingView model.isLoading
+    , errorView model.hasError
+    , noResultsView model.term model.hasNoResults
+    , businessesView model.businesses
     ]
 
 searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
@@ -126,6 +153,20 @@ loadingView isLoading =
       ]
     [ text "Loading..." ]
 
+errorView : Bool -> Html
+errorView hasError =
+  div [ class "alert alert-error"
+      , style [ ("display", if hasError then "block" else "none") ]
+      ]
+    [ text ("Oops! An error occured while searching.") ]
+
+noResultsView : String -> Bool -> Html
+noResultsView term hasNoResults =
+  div [ class "search-no-results"
+      , style [ ("display", if hasNoResults then "block" else "none") ]
+      ]
+    [ text ("Could not find any results for \"" ++ term ++ "\"!") ]
+
 businessesView : List Business -> Html
 businessesView businesses =
   div [] (List.map businessView businesses)
@@ -154,7 +195,7 @@ commaSeparatedView strings =
 search : String -> String -> Effects Action
 search term location =
   Http.get decodeResults (searchUrl term location)
-    |> Task.toMaybe
+    |> Task.toResult
     |> Task.map CompleteSearch
     |> Effects.task
 

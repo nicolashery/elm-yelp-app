@@ -15,9 +15,12 @@ if (CORS_ALLOW_ORIGIN) {
 }
 
 app.get('/search', function(req, res, next) {
-  yelp.search(req.query, function(err, message, results) {
-    if (err) return next(err);
-    res.send(results);
+  yelp.search(req.query, function(err, response, body) {
+    if (err) {
+      return next(err)
+    };
+
+    res.status(response.statusCode).send(body);
   });
 });
 
