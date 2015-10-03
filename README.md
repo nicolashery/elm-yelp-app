@@ -21,6 +21,12 @@ Build the app by running:
 $ elm-make src/Main.elm
 ```
 
+For development, you can also use the following script, which will re-compile when Elm files change (requires [fswatch](https://github.com/emcrisostomo/fswatch) to be installed):
+
+```bash
+$ scripts/dev.sh
+```
+
 Start the frontend server with:
 
 ```bash
