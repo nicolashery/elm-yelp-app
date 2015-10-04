@@ -41,22 +41,22 @@ a:hover {
   color: #aaa;
 }
 
-.search-business:first-child {
+.search-venue:first-child {
   border-top: 1px solid #eee;
 }
 
-.search-business {
+.search-venue {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
 }
 
-.search-business-name {
+.search-venue-name {
   font-size: 1.5rem;
 }
 
-.search-business-address,
-.search-business-neighborhoods,
-.search-business-categories {
+.search-venue-address,
+.search-venue-neighborhoods,
+.search-venue-categories {
   color: #aaa;
   font-size: 0.8rem;
 }

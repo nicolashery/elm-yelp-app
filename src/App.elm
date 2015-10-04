@@ -14,7 +14,7 @@ import Task
 
 -- MODEL --
 
-type alias Business =
+type alias Venue =
   { id : String
   , name : String
   , address : List String
@@ -23,7 +23,7 @@ type alias Business =
   }
 
 type alias Model =
-  { businesses : List Business
+  { venues : List Venue
   , term : String
   , location : String
   , isLoading : Bool
@@ -33,7 +33,7 @@ type alias Model =
 
 init : (Model, Effects Action)
 init =
-  ( { businesses = []
+  ( { venues = []
     , term = ""
     , location = "Montréal, QC"
     , isLoading = False
@@ -52,7 +52,7 @@ type Action
   = UpdateTerm String
   | UpdateLocation String
   | StartSearch
-  | CompleteSearch (Result Http.Error (List Business))
+  | CompleteSearch (Result Http.Error (List Venue))
 
 update : Action -> Model -> (Model, Effects Action)
 update action model =
@@ -69,7 +69,7 @@ update action model =
 
     StartSearch ->
       ( { model
-          | businesses <- []
+          | venues <- []
           , isLoading <- True
           , hasError <- False
           , hasNoResults <- False }
@@ -77,7 +77,7 @@ update action model =
       )
 
     CompleteSearch result ->
-      let businesses =
+      let venues =
             case result of
               Err _ -> []
               Ok value -> value
@@ -85,7 +85,7 @@ update action model =
             case result of
               Err _ -> True
               Ok _ -> False
-          hasNoResults = not hasError && List.isEmpty businesses
+          hasNoResults = not hasError && List.isEmpty venues
           -- Uncomment to debug Http or Json decoding errors
           --error =
           --  case result of
@@ -93,7 +93,7 @@ update action model =
           --    Ok _ -> Nothing
       in
         ( { model
-            | businesses <- businesses
+            | venues <- venues
             , isLoading <- False
             , hasError <- hasError
             , hasNoResults <- hasNoResults }
@@ -109,7 +109,7 @@ view address model =
     , loadingView model.isLoading
     , errorView model.hasError
     , noResultsView model.term model.hasNoResults
-    , businessesView model.businesses
+    , venuesView model.venues
     ]
 
 searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
@@ -167,21 +167,21 @@ noResultsView term hasNoResults =
       ]
     [ text ("Could not find any results for \"" ++ term ++ "\"!") ]
 
-businessesView : List Business -> Html
-businessesView businesses =
-  div [] (List.map businessView businesses)
+venuesView : List Venue -> Html
+venuesView venues =
+  div [] (List.map venueView venues)
 
-businessView : Business -> Html
-businessView business =
-  div [ class "search-business" ]
-    [ div [ class "search-business-name" ] [ text business.name ]
-    , div [ class "search-business-address" ]
-      (commaSeparatedView business.address)
-    , div [ class "search-business-neighborhoods" ]
-      (commaSeparatedView business.neighborhoods)
-    , div [ class "search-business-categories" ]
+venueView : Venue -> Html
+venueView venue =
+  div [ class "search-venue" ]
+    [ div [ class "search-venue-name" ] [ text venue.name ]
+    , div [ class "search-venue-address" ]
+      (commaSeparatedView venue.address)
+    , div [ class "search-venue-neighborhoods" ]
+      (commaSeparatedView venue.neighborhoods)
+    , div [ class "search-venue-categories" ]
       ( commaSeparatedView
-        (List.map (\(name, alias) -> name) business.categories)
+        (List.map (\(name, alias) -> name) venue.categories)
       )
     ]
 
@@ -212,17 +212,17 @@ searchUrl term location =
     , ("location", location)
     ]
 
-decodeResults : Json.Decoder (List Business)
+decodeResults : Json.Decoder (List Venue)
 decodeResults =
-  ("businesses" := (Json.list decodeBusiness))
+  ("businesses" := (Json.list decodeVenue))
 
 decodeCategory : Json.Decoder (String, String)
 decodeCategory =
   Json.tuple2 (,) Json.string Json.string
 
-decodeBusiness : Json.Decoder Business
-decodeBusiness =
-  Json.object5 Business
+decodeVenue : Json.Decoder Venue
+decodeVenue =
+  Json.object5 Venue
     ("id" := Json.string)
     ("name" := Json.string)
     (Json.at ["location", "address"] (Json.list Json.string))
