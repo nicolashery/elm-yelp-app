@@ -226,5 +226,6 @@ decodeBusiness =
     ("id" := Json.string)
     ("name" := Json.string)
     (Json.at ["location", "address"] (Json.list Json.string))
-    (Json.at ["location", "neighborhoods"] (Json.list Json.string))
+    (Json.oneOf [ Json.at ["location", "neighborhoods"] (Json.list Json.string)
+                , Json.succeed [] ])
     ("categories" := Json.list decodeCategory)
