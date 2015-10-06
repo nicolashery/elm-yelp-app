@@ -54,8 +54,8 @@ a:hover {
   font-size: 1.5rem;
 }
 
-.search-venue-address,
-.search-venue-neighborhoods,
+.search-venue-address1,
+.search-venue-address2,
 .search-venue-categories {
   color: #aaa;
   font-size: 0.8rem;

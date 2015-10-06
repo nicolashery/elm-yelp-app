@@ -19,6 +19,7 @@ type alias Venue =
   , name : String
   , address : List String
   , neighborhoods : List String
+  , city: String
   , categories : List (String, String)
   }
 
@@ -175,10 +176,10 @@ venueView : Venue -> Html
 venueView venue =
   div [ class "search-venue" ]
     [ div [ class "search-venue-name" ] [ text venue.name ]
-    , div [ class "search-venue-address" ]
+    , div [ class "search-venue-address1" ]
       (commaSeparatedView venue.address)
-    , div [ class "search-venue-neighborhoods" ]
-      (commaSeparatedView venue.neighborhoods)
+    , div [ class "search-venue-address2" ]
+      (commaSeparatedView (List.append venue.neighborhoods [venue.city]))
     , div [ class "search-venue-categories" ]
       ( commaSeparatedView
         (List.map (\(name, alias) -> name) venue.categories)
@@ -203,7 +204,7 @@ searchUrlBase : String
 searchUrlBase =
    --"/data/search.json"
   -- Comment and uncomment above to bypass remote API, for development
-  "http://localhost:8001/search"
+  "http://localhost:8001/v1/search"
 
 searchUrl : String -> String -> String
 searchUrl term location =
@@ -222,10 +223,11 @@ decodeCategory =
 
 decodeVenue : Json.Decoder Venue
 decodeVenue =
-  Json.object5 Venue
+  Json.object6 Venue
     ("id" := Json.string)
     ("name" := Json.string)
     (Json.at ["location", "address"] (Json.list Json.string))
     (Json.oneOf [ Json.at ["location", "neighborhoods"] (Json.list Json.string)
                 , Json.succeed [] ])
+    (Json.at ["location", "city"] Json.string)
     ("categories" := Json.list decodeCategory)

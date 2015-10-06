@@ -1,6 +1,6 @@
 # Elm Yelp App
 
-Small app built with Elm and the Yelp API.
+Small app built with Elm, PostgreSQL, and the Yelp API.
 
 ## Quickstart
 
@@ -36,6 +36,13 @@ $ npm run frontend
 Navigate to `http://localhost:8000`.
 
 ### Backend
+
+Make sure you have PostgreSQL installed. Create and setup a new database with:
+
+```bash
+$ createdb elm-yelp-app
+$ psql -d elm-yelp-app -f sql/setup.sql
+```
 
 You will need [Yelp API access](https://www.yelp.com/developers/manage_api_keys) to run the backend.
 

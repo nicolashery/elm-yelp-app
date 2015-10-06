@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
+    "lint": "eslint backend",
     "elm": "elm-make --yes --output elm.js src/Main.elm",
     "frontend": "http-server -p 8000",
     "backend": "node backend/server"
@@ -14,12 +15,15 @@
   "author": "Nicolas Hery",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "1.14.1",
     "cors": "2.7.1",
     "express": "4.13.3",
+    "pg": "4.4.2",
     "request": "2.61.0",
     "skeletonframework": "git://github.com/skeletonframework/SkeletonFramework.git#d02759ab30c428bafdf4888d97af243a633516cf"
   },
   "devDependencies": {
+    "eslint": "1.6.0",
     "http-server": "0.8.5"
   }
 }
