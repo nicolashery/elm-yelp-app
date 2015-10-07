@@ -43,15 +43,17 @@ function handlePgError(res, err, status) {
 }
 
 router.post('/v1/collections', function(req, res) {
-  var name = req.body.name;
-  var description = req.body.description;
+  var data = {
+    name: req.body.name,
+    description: req.body.description
+  };
 
   db.connect(function(err, client, done) {
     if (err) {
       return handlePgError(res, err, 500);
     }
 
-    db.createCollection(client, name, description, function(err, collection) {
+    db.createCollection(client, data, function(err, collection) {
       if (err) {
         return handlePgError(res, err);
       }
@@ -108,6 +110,157 @@ router.get('/v1/collections/:id', function(req, res) {
       }
 
       res.send(collection);
+    });
+  });
+});
+
+router.put('/v1/collections/:id', function(req, res) {
+  var id = req.params.id;
+  var data = {
+    name: req.body.name,
+    description: req.body.description
+  };
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.updateCollection(client, id, data, function(err, collection) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      if (!collection) {
+        return handleNotFound(res);
+      }
+
+      res.send(collection);
+    });
+  });
+});
+
+router.delete('/v1/collections/:id', function(req, res) {
+  var id = req.params.id;
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.deleteCollection(client, id, function(err) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.send();
+    });
+  });
+});
+
+router.post('/v1/venues', function(req, res) {
+  var data = {
+    yelp_id: req.body.yelp_id
+  };
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.createVenue(client, data, function(err, venue) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.status(201).send(venue);
+    });
+  });
+});
+
+router.post('/v1/bookmarks', function(req, res) {
+  var data = {
+    venue_id: req.body.venue_id,
+    notes: req.body.notes
+  };
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.createBookmark(client, data, function(err, bookmark) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.status(201).send(bookmark);
+    });
+  });
+});
+
+router.put('/v1/bookmarks/:id', function(req, res) {
+  var id = req.params.id;
+  var data = {
+    notes: req.body.notes
+  };
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.updateBookmark(client, id, data, function(err, bookmark) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.status(201).send(bookmark);
+    });
+  });
+});
+
+router.post('/v1/bookmarks/:id/collections', function(req, res) {
+  var bookmarkId = req.params.id;
+  var collectionId = req.body.id;
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.addBookmarkToCollection(client, bookmarkId, collectionId, function(err) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.status(201).send();
+    });
+  });
+});
+
+router.delete('/v1/bookmarks/:id/collections/:collectionId', function(req, res) {
+  var bookmarkId = req.params.id;
+  var collectionId = req.params.collectionId;
+
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handlePgError(res, err, 500);
+    }
+
+    db.removeBookmarkFromCollection(client, bookmarkId, collectionId, function(err) {
+      if (err) {
+        return handlePgError(res, err);
+      }
+
+      done();
+      res.send();
     });
   });
 });

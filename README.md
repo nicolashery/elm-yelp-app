@@ -62,3 +62,11 @@ Start the backend server with:
 ```bash
 $ source tmp/env.sh
 $ npm run backend
+```
+
+For development, you can also run the following command, which will use `nodemon` to restart the server when files change:
+
+```bash
+$ source tmp/env.sh
+$ npm run backend:dev
+```

@@ -6,7 +6,8 @@
     "lint": "eslint backend",
     "elm": "elm-make --yes --output elm.js src/Main.elm",
     "frontend": "http-server -p 8000",
-    "backend": "node backend/server"
+    "backend": "node backend/server",
+    "backend:dev": "nodemon -w backend backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "eslint": "1.6.0",
-    "http-server": "0.8.5"
+    "http-server": "0.8.5",
+    "nodemon": "1.7.1"
   }
 }

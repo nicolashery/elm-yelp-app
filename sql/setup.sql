@@ -50,8 +50,14 @@ CREATE TRIGGER set_updated_at_bookmarks
   BEFORE UPDATE ON bookmarks FOR EACH ROW
   EXECUTE PROCEDURE set_updated_at_column();
 
-CREATE TABLE collection_bookmarks(
+CREATE TABLE bookmark_collections(
   created_at TIMESTAMP NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'UTC'),
+  updated_at TIMESTAMP NOT NULL DEFAULT (current_timestamp AT TIME ZONE 'UTC'),
+  bookmark_id UUID REFERENCES bookmarks,
   collection_id UUID REFERENCES collections,
-  bookmarks_id UUID REFERENCES bookmarks
+  PRIMARY KEY (bookmark_id, collection_id)
 );
+
+CREATE TRIGGER set_updated_at_bookmark_collections
+  BEFORE UPDATE ON bookmark_collections FOR EACH ROW
+  EXECUTE PROCEDURE set_updated_at_column();
