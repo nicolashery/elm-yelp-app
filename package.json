@@ -20,12 +20,16 @@
     "cors": "2.7.1",
     "express": "4.13.3",
     "pg": "4.4.2",
-    "request": "2.61.0",
+    "request": "2.64.0",
     "skeletonframework": "git://github.com/skeletonframework/SkeletonFramework.git#d02759ab30c428bafdf4888d97af243a633516cf"
   },
   "devDependencies": {
     "eslint": "1.6.0",
     "http-server": "0.8.5",
     "nodemon": "1.7.1"
+  },
+  "engines": {
+    "node": "4.1.2",
+    "npm": "2.14.7"
   }
 }
