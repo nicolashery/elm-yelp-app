@@ -226,8 +226,10 @@ decodeVenue =
   Json.object6 Venue
     ("id" := Json.string)
     ("name" := Json.string)
-    (Json.at ["location", "address"] (Json.list Json.string))
+    (Json.oneOf [ Json.at ["location", "address"] (Json.list Json.string)
+                , Json.succeed [] ])
     (Json.oneOf [ Json.at ["location", "neighborhoods"] (Json.list Json.string)
                 , Json.succeed [] ])
     (Json.at ["location", "city"] Json.string)
-    ("categories" := Json.list decodeCategory)
+    (Json.oneOf [ "categories" := Json.list decodeCategory
+                , Json.succeed [] ])
