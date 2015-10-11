@@ -72,15 +72,27 @@ function deleteCollection(client, id, cb) {
   });
 }
 
-function createVenue(client, data, cb) {
-  client.query('INSERT INTO venues(yelp_id) values($1) RETURNING *', [
-    data.yelp_id
-  ], function(err, result) {
+function createVenue(client, yelpId, cb) {
+  client.query('INSERT INTO venues(yelp_id) values($1) RETURNING *', [yelpId], function(err, result) {
     if (err) {
       return cb(err);
     }
 
     cb(null, result.rows[0]);
+  });
+}
+
+function getOrCreateVenue(client, yelpId, cb) {
+  client.query('SELECT * FROM venues WHERE yelp_id=($1)', [yelpId], function(err, result) {
+    if (err) {
+      return cb(err);
+    }
+
+    if (result.rows[0]) {
+      return cb(null, result.rows[0]);
+    }
+
+    createVenue(client, yelpId, cb);
   });
 }
 
@@ -140,6 +152,7 @@ module.exports = {
   updateCollection: updateCollection,
   deleteCollection: deleteCollection,
   createVenue: createVenue,
+  getOrCreateVenue: getOrCreateVenue,
   createBookmark: createBookmark,
   updateBookmark: updateBookmark,
   addBookmarkToCollection: addBookmarkToCollection,

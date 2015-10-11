@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var yelp = require('./yelp');
 var db = require('./db');
 
+var assign = Object.assign.bind(Object);
+
 var router = express.Router();
 
 router.use(bodyParser.json());
@@ -160,30 +162,9 @@ router.delete('/v1/collections/:id', function(req, res) {
   });
 });
 
-router.post('/v1/venues', function(req, res) {
-  var data = {
-    yelp_id: req.body.yelp_id
-  };
-
-  db.connect(function(err, client, done) {
-    if (err) {
-      return handleDbError(res, err);
-    }
-
-    db.createVenue(client, data, function(err, venue) {
-      if (err) {
-        return handleDbError(res, err);
-      }
-
-      done();
-      res.status(201).send(venue);
-    });
-  });
-});
-
 router.post('/v1/bookmarks', function(req, res) {
+  var yelpId = req.body.yelp_id;
   var data = {
-    venue_id: req.body.venue_id,
     notes: req.body.notes
   };
 
@@ -192,13 +173,20 @@ router.post('/v1/bookmarks', function(req, res) {
       return handleDbError(res, err);
     }
 
-    db.createBookmark(client, data, function(err, bookmark) {
+    db.getOrCreateVenue(client, yelpId, function(err, venue) {
       if (err) {
         return handleDbError(res, err);
       }
 
-      done();
-      res.status(201).send(bookmark);
+      data = assign({}, data, {venue_id: venue.id});
+      db.createBookmark(client, data, function(err, bookmark) {
+        if (err) {
+          return handleDbError(res, err);
+        }
+
+        done();
+        res.status(201).send(bookmark);
+      });
     });
   });
 });
