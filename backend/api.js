@@ -31,11 +31,11 @@ router.get('/v1/search', function(req, res, next) {
   });
 });
 
-function handlePgError(res, err, status) {
-  status = status || 400;
+function handleDbError(res, err) {
+  var status = err.severity === 'FATAL' ? 500 : 400;
   var result = {
     error: {
-      name: 'PgError',
+      name: 'DbError',
       message: err.message
     }
   };
@@ -50,12 +50,12 @@ router.post('/v1/collections', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.createCollection(client, data, function(err, collection) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -67,12 +67,12 @@ router.post('/v1/collections', function(req, res) {
 router.get('/v1/collections', function(req, res) {
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.getCollections(client, function(err, collections) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -96,12 +96,12 @@ router.get('/v1/collections/:id', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.getCollection(client, id, function(err, collection) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -123,12 +123,12 @@ router.put('/v1/collections/:id', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.updateCollection(client, id, data, function(err, collection) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -146,12 +146,12 @@ router.delete('/v1/collections/:id', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.deleteCollection(client, id, function(err) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -167,12 +167,12 @@ router.post('/v1/venues', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.createVenue(client, data, function(err, venue) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -189,12 +189,12 @@ router.post('/v1/bookmarks', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.createBookmark(client, data, function(err, bookmark) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -211,12 +211,12 @@ router.put('/v1/bookmarks/:id', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.updateBookmark(client, id, data, function(err, bookmark) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -231,12 +231,12 @@ router.post('/v1/bookmarks/:id/collections', function(req, res) {
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.addBookmarkToCollection(client, bookmarkId, collectionId, function(err) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
@@ -251,12 +251,12 @@ router.delete('/v1/bookmarks/:id/collections/:collectionId', function(req, res) 
 
   db.connect(function(err, client, done) {
     if (err) {
-      return handlePgError(res, err, 500);
+      return handleDbError(res, err);
     }
 
     db.removeBookmarkFromCollection(client, bookmarkId, collectionId, function(err) {
       if (err) {
-        return handlePgError(res, err);
+        return handleDbError(res, err);
       }
 
       done();
