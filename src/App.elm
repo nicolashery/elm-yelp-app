@@ -6,46 +6,40 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Json exposing ((:=))
+import Json.Decode as Json
 import Maybe
 import Result
+import Store exposing (Store)
 import Task
+import Yelp
 
 
 -- MODEL --
 
-type alias Venue =
-  { id : String
-  , name : String
-  , address : List String
-  , neighborhoods : List String
-  , city: String
-  , categories : List (String, String)
-  }
-
 type alias Model =
-  { venues : List Venue
+  { businesses : List Yelp.Business
   , term : String
   , location : String
   , isLoading : Bool
   , hasError : Bool
   , hasNoResults : Bool
+  , store : Maybe Store
   }
 
 init : (Model, Effects Action)
 init =
-  ( { venues = []
+  ( { businesses = []
     , term = ""
     , location = "Montréal, QC"
     , isLoading = False
     , hasError = False
     , hasNoResults = False
+    , store = Nothing
     }
-  --, search "bars" "Montréal, QC"
+  --, Effects.batch [ getStore, search "bars" "Montréal, QC" ]
   -- Comment and uncomment above to immediately search, for development
-  , Effects.none
+  , getStore
   )
-
 
 -- UPDATE --
 
@@ -53,7 +47,8 @@ type Action
   = UpdateTerm String
   | UpdateLocation String
   | StartSearch
-  | CompleteSearch (Result Http.Error (List Venue))
+  | CompleteSearch (Result Http.Error Yelp.SearchResponse)
+  | CompleteGetStore (Result Http.Error Store)
 
 update : Action -> Model -> (Model, Effects Action)
 update action model =
@@ -70,7 +65,7 @@ update action model =
 
     StartSearch ->
       ( { model
-          | venues <- []
+          | businesses <- []
           , isLoading <- True
           , hasError <- False
           , hasNoResults <- False }
@@ -78,15 +73,15 @@ update action model =
       )
 
     CompleteSearch result ->
-      let venues =
+      let businesses =
             case result of
               Err _ -> []
-              Ok value -> value
+              Ok response -> response.businesses
           hasError =
             case result of
               Err _ -> True
               Ok _ -> False
-          hasNoResults = not hasError && List.isEmpty venues
+          hasNoResults = not hasError && List.isEmpty businesses
           -- Uncomment to debug Http or Json decoding errors
           --error =
           --  case result of
@@ -94,10 +89,25 @@ update action model =
           --    Ok _ -> Nothing
       in
         ( { model
-            | venues <- venues
+            | businesses <- businesses
             , isLoading <- False
             , hasError <- hasError
             , hasNoResults <- hasNoResults }
+        , Effects.none
+        )
+
+    CompleteGetStore result ->
+      let store =
+            case result of
+              Err _ -> Nothing
+              Ok store -> Just store
+          -- Uncomment to debug Http or Json decoding errors
+          --error =
+          --  case result of
+          --    Err error -> Just (Debug.log "error" error)
+          --    Ok _ -> Nothing
+      in
+        ( { model | store <- store }
         , Effects.none
         )
 
@@ -110,7 +120,7 @@ view address model =
     , loadingView model.isLoading
     , errorView model.hasError
     , noResultsView model.term model.hasNoResults
-    , venuesView model.venues
+    , businessesView model.businesses
     ]
 
 searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
@@ -168,23 +178,39 @@ noResultsView term hasNoResults =
       ]
     [ text ("Could not find any results for \"" ++ term ++ "\"!") ]
 
-venuesView : List Venue -> Html
-venuesView venues =
-  div [] (List.map venueView venues)
+businessesView : List Yelp.Business -> Html
+businessesView businesses =
+  div [] (List.map businessView businesses)
 
-venueView : Venue -> Html
-venueView venue =
+businessView : Yelp.Business -> Html
+businessView business =
   div [ class "search-venue" ]
-    [ div [ class "search-venue-name" ] [ text venue.name ]
-    , div [ class "search-venue-address1" ]
-      (commaSeparatedView venue.address)
-    , div [ class "search-venue-address2" ]
-      (commaSeparatedView (List.append venue.neighborhoods [venue.city]))
-    , div [ class "search-venue-categories" ]
-      ( commaSeparatedView
-        (List.map (\(name, alias) -> name) venue.categories)
-      )
+    [ div [ class "search-venue-name" ] [ text business.name ]
+    , locationView business
+    , categoriesView business
     ]
+
+locationView : Yelp.Business -> Html
+locationView business =
+  let location = business.location
+      address = Maybe.withDefault [] location.address
+      neighborhoods = Maybe.withDefault [] location.neighborhoods
+      city = location.city
+  in
+    div []
+      [ div [ class "search-venue-address1" ]
+        (commaSeparatedView address)
+      , div [ class "search-venue-address2" ]
+        (commaSeparatedView (List.append neighborhoods [city]))
+      ]
+
+categoriesView : Yelp.Business -> Html
+categoriesView business =
+  let categories = Maybe.withDefault [] business.categories
+      categoryName = \(name, alias) -> name
+  in
+    div [ class "search-venue-categories" ]
+      (commaSeparatedView (List.map categoryName categories))
 
 commaSeparatedView : List String -> List Html
 commaSeparatedView strings =
@@ -195,16 +221,20 @@ commaSeparatedView strings =
 
 search : String -> String -> Effects Action
 search term location =
-  Http.get decodeResults (searchUrl term location)
+  Http.get Yelp.decodeSearchResponse (searchUrl term location)
     |> Task.toResult
     |> Task.map CompleteSearch
     |> Effects.task
+
+apiUrl : String -> String
+apiUrl path =
+  "http://localhost:8001/v1" ++ path
 
 searchUrlBase : String
 searchUrlBase =
    --"/data/search.json"
   -- Comment and uncomment above to bypass remote API, for development
-  "http://localhost:8001/v1/search"
+  apiUrl "/search"
 
 searchUrl : String -> String -> String
 searchUrl term location =
@@ -213,23 +243,9 @@ searchUrl term location =
     , ("location", location)
     ]
 
-decodeResults : Json.Decoder (List Venue)
-decodeResults =
-  ("businesses" := (Json.list decodeVenue))
-
-decodeCategory : Json.Decoder (String, String)
-decodeCategory =
-  Json.tuple2 (,) Json.string Json.string
-
-decodeVenue : Json.Decoder Venue
-decodeVenue =
-  Json.object6 Venue
-    ("id" := Json.string)
-    ("name" := Json.string)
-    (Json.oneOf [ Json.at ["location", "address"] (Json.list Json.string)
-                , Json.succeed [] ])
-    (Json.oneOf [ Json.at ["location", "neighborhoods"] (Json.list Json.string)
-                , Json.succeed [] ])
-    (Json.at ["location", "city"] Json.string)
-    (Json.oneOf [ "categories" := Json.list decodeCategory
-                , Json.succeed [] ])
+getStore : Effects Action
+getStore =
+  Http.get Store.decodeStore (apiUrl "/store")
+    |> Task.toResult
+    |> Task.map CompleteGetStore
+    |> Effects.task

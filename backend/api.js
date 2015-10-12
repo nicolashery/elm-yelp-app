@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var concurrent = require('contra').concurrent;
 var yelp = require('./yelp');
 var db = require('./db');
 
@@ -9,27 +10,30 @@ var router = express.Router();
 
 router.use(bodyParser.json());
 
-function handleYelpError(res, body, status) {
-  var result = {
-    error: {
-      name: 'YelpError',
-      message: body.error.id + ' ' + body.error.text
-    }
-  };
-  res.status(status).send(result);
+function indexBy(key, arr) {
+  return arr.reduce(function(acc, item) {
+    acc[item[key]] = item;
+    return acc;
+  }, {});
 }
 
-router.get('/v1/search', function(req, res, next) {
-  yelp.search(req.query, function(err, response, body) {
+function handleYelpError(res, err) {
+  var result = {
+    error: {
+      name: err.name,
+      message: err.message
+    }
+  };
+  res.status(err.status || 500).send(result);
+}
+
+router.get('/v1/search', function(req, res) {
+  yelp.search(req.query, function(err, data) {
     if (err) {
-      return next(err);
+      return handleYelpError(res, err);
     }
 
-    if (response.statusCode !== 200) {
-      return handleYelpError(res, body, response.statusCode);
-    }
-
-    res.send(body);
+    res.send(data);
   });
 });
 
@@ -43,6 +47,40 @@ function handleDbError(res, err) {
   };
   res.status(status).send(result);
 }
+
+router.get('/v1/store', function(req, res) {
+  db.connect(function(err, client, done) {
+    if (err) {
+      return handleDbError(res, err);
+    }
+
+    concurrent({
+      bookmarks: db.getBookmarks.bind(null, client),
+      collections: db.getCollections.bind(null, client)
+    }, function(err, data) {
+      if (err) {
+        return handleDbError(res, err);
+      }
+
+      var fetchYelpData = data.bookmarks.reduce(function(acc, bookmark) {
+        acc[bookmark.yelp_id] = yelp.getBusiness.bind(null, bookmark.yelp_id);
+        return acc;
+      }, {});
+
+      concurrent(fetchYelpData, function(err, yelpData) {
+        if (err) {
+          return handleYelpError(res, err);
+        }
+
+        data.bookmarks = indexBy('id', data.bookmarks);
+        data.collections = indexBy('id', data.collections);
+        data.yelp = yelpData;
+        done();
+        res.status(200).send(data);
+      });
+    });
+  });
+});
 
 router.post('/v1/collections', function(req, res) {
   var data = {

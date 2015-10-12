@@ -1,6 +1,6 @@
 var request = require('request');
 
-var API_HOST = 'http://api.yelp.com/v2';
+var YELP_HOST = 'http://api.yelp.com/v2';
 
 var oauth = {
   consumer_key: process.env.CONSUMER_KEY,
@@ -9,15 +9,43 @@ var oauth = {
   token_secret: process.env.TOKEN_SECRET
 };
 
+function responseHandler(cb) {
+  return function(err, response, body) {
+    if (err) {
+      return cb(err);
+    }
+
+    if (response.statusCode !== 200) {
+      err = {
+        name: 'YelpError',
+        message: body.error.id + ' ' + body.error.text,
+        status: response.statusCode
+      };
+      return cb(err);
+    }
+
+    cb(null, body);
+  };
+}
+
 function search(query, cb) {
   request.get({
-    url: API_HOST + '/search',
+    url: YELP_HOST + '/search',
     oauth: oauth,
     qs: query,
     json: true
-  }, cb);
+  }, responseHandler(cb));
+}
+
+function getBusiness(id, cb) {
+  request.get({
+    url: YELP_HOST + '/business/' + id,
+    oauth: oauth,
+    json: true
+  }, responseHandler(cb));
 }
 
 module.exports = {
-  search: search
+  search: search,
+  getBusiness: getBusiness
 };

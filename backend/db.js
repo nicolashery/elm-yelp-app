@@ -31,7 +31,7 @@ function createCollection(client, data, cb) {
 }
 
 function getCollections(client, cb) {
-  client.query('SELECT * FROM collections ORDER BY updated_at DESC', function(err, result) {
+  client.query('SELECT * FROM collections', function(err, result) {
     if (err) {
       return cb(err);
     }
@@ -96,6 +96,21 @@ function getOrCreateVenue(client, yelpId, cb) {
   });
 }
 
+function getBookmarks(client, cb) {
+  client.query('SELECT bookmarks.id, bookmarks.created_at, bookmarks.updated_at, bookmarks.notes, max(venues.yelp_id) as yelp_id, json_agg(bookmark_collections.collection_id) as collection_ids ' +
+               'FROM bookmarks ' +
+               'JOIN venues ON bookmarks.venue_id = venues.id ' +
+               'JOIN bookmark_collections ON bookmarks.id = bookmark_collections.bookmark_id ' +
+               'GROUP BY bookmarks.id',
+  function(err, result) {
+    if (err) {
+      return cb(err);
+    }
+
+    cb(null, result.rows);
+  });
+}
+
 function createBookmark(client, data, cb) {
   client.query('INSERT INTO bookmarks(venue_id, notes) values($1, $2) RETURNING *', [
     data.venue_id, data.notes
@@ -153,6 +168,7 @@ module.exports = {
   deleteCollection: deleteCollection,
   createVenue: createVenue,
   getOrCreateVenue: getOrCreateVenue,
+  getBookmarks: getBookmarks,
   createBookmark: createBookmark,
   updateBookmark: updateBookmark,
   addBookmarkToCollection: addBookmarkToCollection,
