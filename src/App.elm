@@ -120,7 +120,7 @@ view address model =
     , loadingView model.isLoading
     , errorView model.hasError
     , noResultsView model.term model.hasNoResults
-    , businessesView model.businesses
+    , businessesView model.store model.businesses
     ]
 
 searchFormView : Signal.Address Action -> String -> String -> Bool -> Html
@@ -178,16 +178,17 @@ noResultsView term hasNoResults =
       ]
     [ text ("Could not find any results for \"" ++ term ++ "\"!") ]
 
-businessesView : List Yelp.Business -> Html
-businessesView businesses =
-  div [] (List.map businessView businesses)
+businessesView : Maybe Store -> List Yelp.Business -> Html
+businessesView maybeStore businesses =
+  div [] (List.map (businessView maybeStore) businesses)
 
-businessView : Yelp.Business -> Html
-businessView business =
+businessView : Maybe Store -> Yelp.Business -> Html
+businessView maybeStore business =
   div [ class "search-venue" ]
     [ div [ class "search-venue-name" ] [ text business.name ]
     , locationView business
     , categoriesView business
+    , bookmarkView maybeStore business
     ]
 
 locationView : Yelp.Business -> Html
@@ -216,6 +217,24 @@ commaSeparatedView : List String -> List Html
 commaSeparatedView strings =
   List.intersperse (span [] [text ", "])
     (List.map (\s -> span [] [text s]) strings)
+
+bookmarkView : Maybe Store -> Yelp.Business -> Html
+bookmarkView maybeStore business =
+  case maybeStore of
+    Nothing ->
+      div [ class "search-venue-bookmark" ] []
+
+    Just store ->
+      let maybeBookmark = Store.getBookmarkForYelpId store business.id
+          label =
+            case maybeBookmark of
+              Nothing ->
+                "Bookmark"
+              Just bookmark ->
+                "Bookmarked (" ++ toString (List.length bookmark.collectionIds) ++ ")"
+      in
+        div [ class "search-venue-bookmark" ]
+          [ a [ href "#" ] [ text label ] ]
 
 -- EFFECTS --
 

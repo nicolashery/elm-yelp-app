@@ -56,3 +56,9 @@ decodeCollection =
     ("updated_at" := Json.string)
     ("name" := Json.string)
     ("description" := Json.string)
+
+getBookmarkForYelpId : Store -> Yelp.BusinessId -> Maybe Bookmark
+getBookmarkForYelpId store yelpId =
+  Dict.values store.bookmarks
+    |> List.filter (\bookmark -> bookmark.yelpId == yelpId)
+    |> List.head
